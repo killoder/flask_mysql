@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Authors</title>
+</head>
+
+<body>
+    <div class="new-auth">
+        <form action="/create/author" method="post">
+            <h2 class="text-center text-dark">New Author</h2>
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" class="form-control" required>
+            </div>
+            <input type="submit" value="Add Author" class="btn btn-primary cen">
+        </form>
+    </div>
+    <div class="all-auth ">
+        <div class=" qender">
+            <h2 style="padding-left: 10px;" class="card-title">All Authors</h2>
+            {% for one_author in all_authors %}
+            <ol style="list-style-type: disc;" class="card-text">
+                <li><a class="bold" href="/author/{{one_author.id}}">{{one_author.name.capitalize()}}</a></li>
+            </ol>
+            {% endfor %}
+            <div class="card-footer">
+                <a href="/books" class="btn btn-secondary cen">View/Add Book</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

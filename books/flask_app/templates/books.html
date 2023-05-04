@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Books</title>
+</head>
+
+<body>
+    <div class="new-auth">
+        <form action="/create/book" method="post">
+            <h2 class="text-center text-dark">New Book</h2>
+            <div class="form-group">
+                <label for="tite">Title:</label>
+                <input type="text" name="title" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <label for="num_of_pages">Num of Pages:</label>
+                <input type="number" name="num_of_pages" class="form-control" required>
+            </div>
+            <input type="submit" value="Add Book" class="btn btn-primary cen">
+        </form>
+    </div>
+    <div class="all-auth">
+        <div class="qender">
+            <h2 style="padding-left: 10px;" class="card-title">All Books</h2>
+            {% for one_book in all_books %}
+            <ol style="list-style-type: disc;" class="card-text">
+                <li><a class="bold" href="/book/{{one_book.id}}">{{one_book.title.capitalize()}}</a></li>
+            </ol>
+            {% endfor %}
+            <div class="card-footer">
+                <a href="/" class="btn btn-secondary cen">Home</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
