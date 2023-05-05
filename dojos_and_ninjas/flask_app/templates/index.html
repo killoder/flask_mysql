@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Dojos and Ninjas</title>
+</head>
+
+<body>
+    <video autoplay loop muted class="back" src="../static/img/video.mp4" type="video/mp4"> </video>
+
+    <form action="/create/dojo" method="post" class="col-4 bg-dark p-4 my-5 mx-auto text-light kutia">
+        <h2 class="text-center">New Dojo</h2>
+        <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" name="name" class="form-control">
+        </div>
+        <input type="submit" value="Add Dojo" class="cen">
+    </form>
+
+    <div class="col-4 bg-dark text-light text-center my-5 p-4 mx-auto text-light kutia ">
+        <h2>All Dojos</h2>
+        {% for d in all_dojos %}
+        <p>
+            <a href="/dojo/{{d.id}}">{{d.name}}</a>
+        </p>
+        {% endfor %}
+            <a href="/ninjas" class="cen">Add Ninja</a>
+    </div>
+
+</body>
+
+</html>
