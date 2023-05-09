@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Login/SignUp</title>
+</head>
+
+<body>
+    <form action="/login" method="post" class="col-5 rounded p-5 bg-info box">
+        {% with messages = get_flashed_messages(category_filter=["emailLogin"]) %}
+        {% if messages %}
+        {% for message in messages %}
+        <p class="mess text-center">{{message}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" name="email" class="form-control">
+        </div>
+        {% with messages = get_flashed_messages(category_filter=["passwordLogin"]) %}
+        {% if messages %}
+        {% for message in messages %}
+        <p class="mess text-center">{{message}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" class="form-control">
+        </div>
+        <input type="submit" value="Login" class="btn buton">
+    </form>
+
+    <form action="/register" method="post" class="col-5 rounded p-5 bg-info box">
+        {% with messages = get_flashed_messages(category_filter=["firstNameRegister"]) %}
+        {% if messages %}
+        {% for message in messages %}
+        <p class="mess">{{message}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="form-group">
+            <label for="first_name">First Name:</label>
+            <input type="text" name="first_name" class="form-control" >
+        </div>
+        {% with messages = get_flashed_messages(category_filter=["lastNameRegister"]) %}
+        {% if messages %}
+        {% for message in messages %}
+        <p class="mess">{{message}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="form-group">
+            <label for="last_name">Last Name:</label>
+            <input type="text" name="last_name" class="form-control">
+        </div>
+        {% with messages = get_flashed_messages(category_filter=["emailRegister"]) %}
+        {% if messages %}
+        {% for message in messages %}
+        <p class="mess ">{{message}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="text" name="email" class="form-control">
+        </div>
+        {% with messages = get_flashed_messages(category_filter=["birthdateRegister"]) %}
+        {% if messages %}
+        {% for message in messages %}
+        <p class="mess ">{{message}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="form-group">
+            <label for="birthdate">Birthdate:</label>
+            <input type="date" id="birthdate" name="birthdate">
+        </div>
+        {% with messages = get_flashed_messages(category_filter=["genderRegister"]) %}
+        {% if messages %}
+        {% for message in messages %}
+        <p class="mess ">{{message}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="form-group">
+            <label for="gender">Gender:</label>
+            <input type="radio" id="male" name="gender" value="male">
+            <label for="male">Male</label>
+            <input type="radio" id="female" name="gender" value="female">
+            <label for="female">Female</label>
+            <input type="radio" id="other" name="gender" value="other">
+            <label for="other">Other</label>
+        </div>
+        {% with messages = get_flashed_messages(category_filter=["interestsRegister"]) %}
+        {% if messages %}
+        {% for message in messages %}
+        <p class="mess ">{{message}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="form-group">
+            <label for="interests">Interests:</label>
+            <input type="checkbox" id="python" name="interests[]" value="python">
+            <label for="python">Python</label>
+            <input type="checkbox" id="java" name="interests[]" value="java">
+            <label for="java">Java</label>
+            <input type="checkbox" id="mern" name="interests[]" value="mern">
+            <label for="mern">Mern</label>
+        </div>
+        {% with messages = get_flashed_messages(category_filter=["passwordRegister"]) %}
+        {% if messages %}
+        {% for message in messages %}
+        <p class="mess">{{message}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" class="form-control">
+        </div>
+        {% with messages = get_flashed_messages(category_filter=["confirmPasswordRegister"]) %}
+        {% if messages %}
+        {% for message in messages %}
+        <p class="mess">{{message}}</p>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
+        <div class="form-group">
+            <label for="confirm_password">Confirm Password:</label>
+            <input type="password" name="confirm_password" class="form-control">
+        </div>
+        <input type="submit" value="Register" class="btn buton">
+    </form>
+</body>
+
+</html>
