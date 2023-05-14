@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Friendships</title>
+</head>
+
+<body>
+    <div class="majtas">
+        <div class="eha text-center text-light ">
+            <h3>Friendships</h3>
+            {% with messages = get_flashed_messages(category_filter=["success"]) %}
+            {% if messages %}
+            {% for message in messages %}
+            <p class="text-center text-dark">{{ message }}</p>
+            {% endfor %}
+            {% endif %}
+            {% endwith %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Friend</th>
+                        <th>Remove</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for friendship in friendships %}
+                    <tr>
+                        <td>{{ friendship.user.first_name }} {{ friendship.user.last_name }}</td>
+                        <td>{{ friendship.friend.first_name }} {{ friendship.friend.last_name }}</td>
+                        <td><a class="act" href="/delete/friendships/{{friendship.id}}?_method=DELETE">Delete</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+
+        <div class="djathtas">
+            <form action="/create/user" method="post" class="text-light kutia">
+                <h3 class="text-center">Add User</h3>
+                <div class="form-group">
+                    <label for="first_name">First Name:</label>
+                    <input type="text" name="first_name" class="form-control">
+                </div>
+                <div>
+                    <label for="last_name">Last Name:</label>
+                    <input type="text" name="last_name" class="form-control">
+                </div>
+                <input type="submit" value="Add User" class="cen">
+            </form>
+
+            <form action="/create/friendship" method="post" class="text-light kutia">
+                <h3 class="text-center">New Friendship</h3>
+                {% with messages = get_flashed_messages(category_filter=["friendship"]) %}
+                {% if messages %}
+                {% for message in messages %}
+                <p class="text-center text-dark">{{ message }}</p>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+
+                <div class="form-group">
+                    <label for="user">User:</label>
+                    <select name="user_id" class="form-control">
+                        {% for user in users %}
+                        <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="friend">Friend:</label>
+                    <select name="friend_id" class="form-control">
+                        {% for user in users %}
+                        <option value="{{user.id}}">{{user.first_name}} {{user.last_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <input type="submit" value="Create Friendship" class="cen">
+            </form>
+        </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,88 @@
+body {
+    background-color: #D9AFD9;
+    background-image: linear-gradient(0deg, #D9AFD9 0%, #97D9E1 100%);    
+    display: flex;
+    flex: 2;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 100vh;
+    margin: auto;
+}
+.majtas {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.djathtas {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+.eha{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px #3143a0;
+    padding: 20px;
+    width: 400px;
+    margin-left: 10%;
+}
+.act{
+    color: red;
+    font-size: 14px;
+    text-decoration: none;
+}
+.friendships {
+    display: flex;
+}
+.anesore {
+    display: flex;
+}
+.kutia {
+    background-color: #4158D0;
+    background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+    border-radius: 30px;
+    box-shadow: 0px 0px 20px #3143a0;
+    padding: 20px;
+    width: 300px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+
+h3 {
+    font-family: "Angellia";
+    letter-spacing: 4px;
+    font-size: 20px;
+    color: white;
+}
+
+table {
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+a {
+    color: white;
+    font-weight: bold;
+    font-size: larger;
+}
+.cen {
+    padding: 7px;
+    width: 150px;
+    background-color: #FFCC70;
+    border: 0px;
+    border-radius: 15px;
+    margin: auto;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    color: black;
+    font-weight: bold;
+}
